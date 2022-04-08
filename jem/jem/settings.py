@@ -77,8 +77,11 @@ WSGI_APPLICATION = 'jem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mysql.connector.django',
+        'NAME':'db_jem',
+        'USER':'root',
+        'PASSWORD':'12345678',
+        'HOST':'localhost',
     }
 }
 
