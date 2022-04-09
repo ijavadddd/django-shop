@@ -1,6 +1,10 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/django,pycharm+all,virtualenv,venv,python,macos,windows,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,pycharm+all,virtualenv,venv,python,macos,windows,visualstudiocode
+### my ignores ###
+venv/
+
+
 
 ### Django ###
 *.log
