@@ -3,7 +3,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,pycharm+all,virtualenv,venv,python,macos,windows,visualstudiocode
 ### my ignores ###
 venv/
-
+.DS_Store
+.idea/
 
 
 ### Django ###
