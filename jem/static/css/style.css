@@ -1,0 +1,25 @@
+.encode-f{
+    font-family: 'Encode Sans', sans-serif;
+}
+.jetbrains-f{
+    font-family: 'JetBrains Mono', monospace;
+}
+.robot{
+    font-family: 'Roboto', sans-serif;
+}
+*{
+    font-family: 'Roboto', sans-serif;
+}
+.products-result , 
+.product-filter{
+    min-height: 300px;
+    padding:0.6rem 1rem;
+}
+.product-box{
+    min-height:400px;
+}
+.product-img{
+    height:250px;
+}
+
+

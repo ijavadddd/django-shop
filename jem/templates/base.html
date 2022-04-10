@@ -1,0 +1,20 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+        {% include 'partial/head.html' %}
+        {% block head %}
+        <title>Hello, world!</title>
+        {% endblock head %}
+  </head>
+  <body>
+        {% include 'partial/header.html' %}
+        
+        {% block main %}{% endblock main %}
+
+        {% include 'partial/footer.html' %}
+        
+        {% block script %}{% endblock script %}
+        {% include 'partial/script.html' %}
+  </body>
+</html>
