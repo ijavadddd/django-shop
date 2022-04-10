@@ -1,23 +1,28 @@
 from django.db import models
 # Create your models here.
 
+
 class Image(models.Model):
     url = models.CharField(max_length=170)
     slug = models.SlugField(max_length=200)
 
+
 class Attribute(models.Model):
     title = models.CharField(max_length=55)
     value = models.CharField(max_length=55)
+
 
 class MainAttribute(models.Model):
     title = models.CharField(max_length=55)
     value = models.CharField(max_length=55)
     other_attributs= models.ManyToManyField(Attribute)
 
+
 class Category(models.Model):
     title = models.CharField(max_length=55)
     slug = models.SlugField(max_length=75)
     parent = models.ForeignKey('self',on_delete=models.CASCADE)
+
 
 class Product(models.Model):
     title = models.CharField(max_length=150)
