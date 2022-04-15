@@ -1,10 +1,10 @@
-.encode-f{
+.f-encode{
     font-family: 'Encode Sans', sans-serif;
 }
-.jetbrains-f{
+.f-jetbrains{
     font-family: 'JetBrains Mono', monospace;
 }
-.robot{
+.f-robot{
     font-family: 'Roboto', sans-serif;
 }
 *{
@@ -16,10 +16,26 @@
     padding:0.6rem 1rem;
 }
 .product-box{
-    min-height:400px;
+    position: relative;
+    width:290px;
+    height:400px;
+    overflow:hidden;
 }
-.product-img{
+.product-box--offer-container{
+    height:26px;
+}
+.product-box--img-container{
     height:250px;
 }
-
-
+.product-box--img{
+    max-width:100%; 
+}
+.product-box--title-container > a{
+    color:rgb(61, 61, 61);
+    text-decoration:none;
+}
+.product-box--description__price--container{
+    width: 100%;
+    min-height:70px;
+    padding:0.1rem 0.6rem;
+}

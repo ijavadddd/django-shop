@@ -6,30 +6,50 @@
 
 {% block main %}
 <div class="container-fluid">
-    <div class="container">
-        <div class="row">
-            <!-- search results container -->
-            <div class="products-result-container col-12 col-md-7 col-lg-8">
-                <!-- inner container -->
-                <div class="products-result shadow-sm rounded">
-                    <!-- Product box for show img, price & details -->
-                    <div class="product-box shadow-sm rounded col-1 col-md-4 col-xg-3">
-                        <!-- Product img -->
-                        <div class="product-img w-100 bg-danger">
-                            s
-                        </div>
-                        <!-- Product title -->
-                        <div class="product-title">
+    <div class="row gx-1">
+         {% comment %} search results container  {% endcomment %}
+        <div class="products-result-container col-12 col-md-8 col-lg-9 col-xg-10">
+             {% comment %} inner container for search results {% endcomment %}
+            <div class="products-result shadow-sm rounded">
+                {% comment %} Product box for show img, price & details of a product {% endcomment %}
+                <div class="product-box shadow-sm rounded col-1 col-md-4 col-xg-3">
+                    <article class="product">
+                        {% comment %} Box for product offer title , Super discount or something else {% endcomment %}
+                        <div class="product-box--offer-container">
 
                         </div>
-                    </div>
+                        {% comment %} Product img container {% endcomment %}
+                        <div class="product-box--img-container w-100">
+                            <img src="{{media}}/img/product/p1-main.jpg" alt="" class="product-box--img">
+                        </div>
+                        {% comment %} Product title container {% endcomment %}
+                        <div class="product-box--title-container p-2">
+                            <a href="#" class="stretched-link">
+                                <h2 class="product--box--title fs-6">Men's sneakers model PART-SO</h2>
+                            </a>
+                        </div>
+                        {% comment %} Product Description container {% endcomment %}
+                        <div class="product-box--description">
+                            {% comment %} Container for product price and discount & .... {% endcomment %}
+                            <div class="product-box--description__price--container">
+                                {% comment %} container for price after discount {% endcomment %}
+                                <div class="product-box--description__new-price">
+                                    <span class="fs-5 f-jetbrains">4</span>&nbsp;<span class="fs-5 f-robot">$</span>
+                                </div>
+                                {% comment %} container for discount before discount {% endcomment %}
+                                <div class="product-box--description__old-price">
+                                    <del class="text-muted"><span class="fs-6">8</span></del>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
-            <!-- Search filter container -->
-            <div class="product-filter-conatiner col-md-5 col-lg-4">
-                <div class="product-filter shadow-sm rounded">
-    s
-                </div>
+        </div>
+        <!-- Search filter container -->
+        <div class="product-filter-conatiner col-md-4 col-lg-3 col-xg-2">
+            <div class="product-filter shadow-sm">
+s
             </div>
         </div>
     </div>
