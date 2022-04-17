@@ -11,6 +11,7 @@ class Image(models.Model):
 ##This class is for insert product attributes
 class Attribute(models.Model):
     title = models.CharField(max_length=55)
+    slug = models.SlugField(max_length=70)
     value = models.CharField(max_length=55)
 
 
