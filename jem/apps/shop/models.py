@@ -6,13 +6,21 @@ from django.db import models
 class Image(models.Model):
     url = models.CharField(max_length=170)
     slug = models.SlugField(max_length=200)
- 
+    
+    def __str__(self):
+        info = f'{self.slug}'
+        return info
+
 
 ##This class is for insert product attributes
 class Attribute(models.Model):
     title = models.CharField(max_length=55)
     slug = models.SlugField(max_length=70)
     value = models.CharField(max_length=55)
+    
+    def __str__(self):
+        info = f'{self.title} : {self.value}'
+        return info
 
 
 ##This class is for insert witch product attribut that can change product price 
@@ -21,18 +29,26 @@ class MainAttribute(models.Model):
     value = models.CharField(max_length=55)
     other_attributs= models.ManyToManyField(Attribute)
 
+    def __str__(self):
+        info = f'{self.title} : {self.value}'
+        return info
+
 
 ##This class is for products category
 class Category(models.Model):
     title = models.CharField(max_length=55)
     slug = models.SlugField(max_length=75)
-    parent = models.ForeignKey('self', on_delete=models.CASCADE)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE ,null=True ,blank=True, default=None)
+    
+    def __str__(self):
+        info = f'{self.title}'
+        return info
 
 
 ##This class is for products
 class Product(models.Model):
     title = models.CharField(max_length=150)
-    brand = models.CharField(max_length=50)
+    brand = models.CharField(max_length=50, null=True, blank=True, default=None)
     slug = models.SlugField(max_length=285)
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     main_img = models.CharField(max_length=700)
@@ -42,10 +58,19 @@ class Product(models.Model):
     description = models.TextField()
     status = models.BooleanField(default=True)
 
+    def __str__(self):
+        info = f'{self.title} {self.brand} - {self.status}'
+        return info
+
+
 ##Eache category filter value for title
 class FilterValue(models.Model):
     title = models.CharField(max_length=85)
     slug = models.CharField(max_length=100)
+
+    def __str__(self):
+        info = f'{self.title}'
+        return info
 
 ##Eache category filters title
 class FilterItem(models.Model):
@@ -53,8 +78,15 @@ class FilterItem(models.Model):
     value = models.ManyToManyField(FilterValue)
     slug = models.SlugField(max_length=100)
 
+    def __str__(self):
+        info = f'{self.title}'
+        return info
 
 ##This class will use for handel products search filter base on thier category
 class Filter(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     filters = models.ManyToManyField(FilterItem)
+
+    def __str__(self):
+        info = f'{self.title}'
+        return info
