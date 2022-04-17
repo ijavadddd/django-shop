@@ -82,12 +82,19 @@ WSGI_APPLICATION = 'jem.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'django_shop',
+    #     'USER': 'postgres',
+    #     'PORT': '5432',
+    #     'HOST': 'localhost',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django_shop',
-        'USER': 'postgres',
-        'PORT': '5432',
-        'HOST': 'localhost',
+        'ENGINE': 'mysql.connector.django',
+        'NAME':'db_jem',
+        'USER':'root',
+        'PASSWORD':'12345678',
+        'HOST':'localhost',
     }
 }
 

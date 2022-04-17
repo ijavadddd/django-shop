@@ -17,7 +17,7 @@
 }
 .product-box{
     position: relative;
-    width:290px;
+    flex: 0 1 270px;
     height:400px;
     overflow:hidden;
 }
@@ -26,9 +26,11 @@
 }
 .product-box--img-container{
     height:250px;
+    display: flex;
 }
 .product-box--img{
     max-width:100%; 
+    margin: 0 auto;
 }
 .product-box--title-container > a{
     color:rgb(61, 61, 61);
