@@ -12,7 +12,9 @@
   <body>
         {% include 'partial/header.html' %}
         
-        {% block main %}{% endblock main %}
+      <div class="container-fluid">
+              {% block main %}{% endblock main %}
+      </div>
 
         {% include 'partial/footer.html' %}
         

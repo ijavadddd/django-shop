@@ -12,6 +12,7 @@
              {% comment %} inner container for search results {% endcomment %}
             <div class="products-result row justify-content-start gap-2 shadow-sm rounded">
 
+            {% for product in products %}
                 {% comment %} Product box for show img, price & details of a product {% endcomment %}
                 <div class="product-box shadow-sm rounded col-1 col-md-4 col-xg-3">
                     <article class="product">
@@ -25,8 +26,8 @@
                         </div>
                         {% comment %} Product title container {% endcomment %}
                         <div class="product-box--title-container p-2">
-                            <a href="#" class="stretched-link">
-                                <h2 class="product--box--title fs-6">Men's sneakers model PART-SO</h2>
+                            <a href="/search/p{{product.id}}-{{product.slug}}" class="stretched-link">
+                                <h2 class="product--box--title fs-6">{{product.title}}</h2>
                             </a>
                         </div>
                         {% comment %} Product Description container {% endcomment %}
@@ -35,51 +36,21 @@
                             <div class="product-box--description__price--container">
                                 {% comment %} container for price after discount {% endcomment %}
                                 <div class="product-box--description__new-price">
-                                    <span class="fs-5 f-jetbrains">4</span>&nbsp;<span class="fs-5 f-robot">$</span>
+                                    {% if product.discount != 0 %}
+                                    <span class="fs-5 f-jetbrains">{{ product.new_price }}</span>&nbsp;<span class="fs-5 f-robot">$</span><span class="product-discount-badge">{{product.discount}}%</span>
+                                    {% else %}
+                                    <span class="fs-5 f-jetbrains">{{ product.new_price }}</span>
+                                    {% endif %}
                                 </div>
                                 {% comment %} container for discount before discount {% endcomment %}
                                 <div class="product-box--description__old-price">
-                                    <del class="text-muted"><span class="fs-6">8</span></del>
+                                    <del class="text-muted"><span class="fs-6">{{product.price}}</span></del>
                                 </div>
                             </div>
                         </div>
                     </article>
                 </div>
-
-                {% comment %} Product box for show img, price & details of a product {% endcomment %}
-                <div class="product-box shadow-sm rounded col-1 col-md-4 col-xg-3">
-                    <article class="product">
-                        {% comment %} Box for product offer title , Super discount or something else {% endcomment %}
-                        <div class="product-box--offer-container">
-
-                        </div>
-                        {% comment %} Product img container {% endcomment %}
-                        <div class="product-box--img-container w-100">
-                            <img src="{{media}}/img/product/p1-main.jpg" alt="" class="product-box--img">
-                        </div>
-                        {% comment %} Product title container {% endcomment %}
-                        <div class="product-box--title-container p-2">
-                            <a href="#" class="stretched-link">
-                                <h2 class="product--box--title fs-6">Men's sneakers model PART-SO</h2>
-                            </a>
-                        </div>
-                        {% comment %} Product Description container {% endcomment %}
-                        <div class="product-box--description">
-                            {% comment %} Container for product price and discount & .... {% endcomment %}
-                            <div class="product-box--description__price--container">
-                                {% comment %} container for price after discount {% endcomment %}
-                                <div class="product-box--description__new-price">
-                                    <span class="fs-5 f-jetbrains">4</span>&nbsp;<span class="fs-5 f-robot">$</span>
-                                </div>
-                                {% comment %} container for discount before discount {% endcomment %}
-                                <div class="product-box--description__old-price">
-                                    <del class="text-muted"><span class="fs-6">8</span></del>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                
+            {% endfor %}
             </div>
         </div>
         <!-- Search filter container -->

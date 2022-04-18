@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/shop/product.css' %}">
+{% endblock head %}
+
+{% block main %}
+<div class="    ">
+    <div class="product--container">
+        {% for product in product %}
+        <div class="product--img-container col-4">
+            <img src="{{media}}/{{product.main_img}}" alt="{{product.title}}" class="product--img" >
+        </div>
+        <div class="product-detail col-8 ps-3">
+            <div class="product--category-container">
+                {% if categories != None %}
+                    {% for category in categories %}
+                <a href="/search/{{category.0}}" class="text-muted text-decoration-none f-encode">{{category.1}}</a>
+                    {% with categories|last as last_category %}
+                        {% if category != last_category %}
+                            <span class="text-muted f-encode">&nbsp;\&nbsp;</span>
+                        {% endif %}
+                    {% endwith %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="product--title-container col-12">
+                <div class="product--title">
+                    <h1 class="fs-2">{{product.title}}</h1>
+                    {% if product.brand != None %}
+                    <h2 class="fs-6 text-muted fw-light f-jetbrains">{{product.brand}}</h2>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="product--price col-12">
+                {% if product.discount != None %}
+                <span class="fs-3">{{product.new_price}}$
+                </span>&nbsp<span class="product-discount-badge">{{product.discount}}%</span></br>
+                <del><span class="fs-6 text-muted">{{product.price}}</span></del>
+                {% else %}
+                <span class="">{{product.price}}</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock main %}
+
+
+{% block script %}{% endblock script %}
+
+
+

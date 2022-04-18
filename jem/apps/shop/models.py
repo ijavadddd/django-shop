@@ -50,6 +50,15 @@ class Product(models.Model):
     title = models.CharField(max_length=150)
     brand = models.CharField(max_length=50, null=True, blank=True, default=None)
     slug = models.SlugField(max_length=285)
+    price = models.IntegerField()
+    discount = models.IntegerField(blank=True ,null=None , default=0)
+    
+    def New_Price(self):
+        new_price = (self.price * self.discount)/100
+        new_price = self.price - new_price
+        return new_price
+
+    new_price = New_Price
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     main_img = models.CharField(max_length=700)
     images= models.ManyToManyField(Image, blank=True, null=True)
