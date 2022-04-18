@@ -47,3 +47,19 @@ class Product(View):
             'categories':Categories,
         }
         return render(request, 'shop/product.html',context)
+
+class Category(View):
+    def get(self, request,category_slug):
+        products=models.Product.objects.all()
+        search=[]
+        def Category(category):
+            if category.slug == category_slug:
+                search.append(product)
+            else:
+                if category.parent != None:
+                    Category(category.parent)  
+        for product in products:
+            Category(product.category)
+
+        context={'products':search}
+        return render(request, 'shop/search.html',context)

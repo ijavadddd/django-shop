@@ -5,4 +5,5 @@ urlpatterns =[
     path('',views.Index.as_view(),name='home'),
     path('search/',views.Shop.as_view(),name='shop'),
     path('search/p<int:product_id>-<slug:product_slug>',views.Product.as_view(),name='product'),
+    path('search/<slug:category_slug>',views.Category.as_view(),name='category'),
 ]
