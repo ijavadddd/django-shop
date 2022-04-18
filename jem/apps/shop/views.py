@@ -37,9 +37,9 @@ class Product(View):
         def Category(category):
             if category.parent != None:
                 Category(category.parent)
-                Categories.append((category.title,category.slug))
+                Categories.append((category.slug,category.title))
             else:
-                Categories.append((category.title,category.slug))
+                Categories.append((category.slug,category.title))
 
         Category(product[0].category)
         context={
