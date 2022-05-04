@@ -38,13 +38,13 @@
                                 <div class="product-box--description__new-price">
                                     {% if product.discount != 0 %}
                                     <span class="fs-5 f-jetbrains">{{ product.new_price }}</span>&nbsp;<span class="fs-5 f-robot">$</span><span class="product-discount-badge">{{product.discount}}%</span>
+                                    <div class="product-box--description__old-price">
+                                    {% comment %} container for discount before discount {% endcomment %}
+                                        <del class="text-muted"><span class="fs-6">{{product.price}}</span></del>
+                                    </div>
                                     {% else %}
                                     <span class="fs-5 f-jetbrains">{{ product.new_price }}</span>
                                     {% endif %}
-                                </div>
-                                {% comment %} container for discount before discount {% endcomment %}
-                                <div class="product-box--description__old-price">
-                                    <del class="text-muted"><span class="fs-6">{{product.price}}</span></del>
                                 </div>
                             </div>
                         </div>
