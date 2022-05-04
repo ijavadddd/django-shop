@@ -10,11 +10,11 @@
          {% comment %} search results container  {% endcomment %}
         <div class="products-result-container col-12 col-md-8 col-lg-9 col-xg-10">
              {% comment %} inner container for search results {% endcomment %}
-            <div class="products-result row justify-content-start gap-2 shadow-sm rounded">
+            <div class="products-result row justify-content-start shadow-sm rounded">
 
             {% for product in products %}
                 {% comment %} Product box for show img, price & details of a product {% endcomment %}
-                <div class="product-box shadow-sm rounded col-1 col-md-4 col-xg-3">
+                <div class="product-box col-12 col-md-4 col-lx-3">
                     <article class="product">
                         {% comment %} Box for product offer title , Super discount or something else {% endcomment %}
                         <div class="product-box--offer-container">
@@ -26,7 +26,7 @@
                         </div>
                         {% comment %} Product title container {% endcomment %}
                         <div class="product-box--title-container p-2">
-                            <a href="/search/p{{product.id}}-{{product.slug}}" class="stretched-link">
+                            <a href="/search/p{{product.id}}-{{product.slug}}" class=>
                                 <h2 class="product--box--title fs-6">{{product.title}}</h2>
                             </a>
                         </div>

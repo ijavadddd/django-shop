@@ -30,7 +30,16 @@
     flex: 0 1 270px;
     height:400px;
     overflow:hidden;
+    border-right: 1px solid #f0f0f1;
+    border-bottom: 1px solid #f0f0f1;
+    transition:all 0.4s 0.1s;
 }
+.product-box:hover{
+    z-index: 1;
+    -webkit-box-shadow:0px 9px 20px rgb(190, 190, 190);;
+    box-shadow:0px 9px 20px rgb(190, 190, 190);
+}
+
 .product-box--offer-container{
     height:26px;
 }
