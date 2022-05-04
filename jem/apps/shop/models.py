@@ -4,7 +4,7 @@ from django.db import models
 
 ##Class for product manage images
 class Image(models.Model):
-    url = models.CharField(max_length=170)
+    image = models.ImageField(upload_to='images/products')
     slug = models.SlugField(max_length=200)
     
     def __str__(self):
@@ -36,9 +36,9 @@ class MainAttribute(models.Model):
 
 ##This class is for products category
 class Category(models.Model):
+    parent = models.ForeignKey('self', on_delete=models.CASCADE ,null=True ,blank=True, default=None)
     title = models.CharField(max_length=55)
     slug = models.SlugField(max_length=75)
-    parent = models.ForeignKey('self', on_delete=models.CASCADE ,null=True ,blank=True, default=None)
     
     def __str__(self):
         info = f'{self.title}'
@@ -60,7 +60,8 @@ class Product(models.Model):
 
     new_price = New_Price
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
-    main_img = models.CharField(max_length=700)
+    coverImage = models.ImageField(upload_to='images/products')
+    main_img = models.ImageField(upload_to='images/products')
     images= models.ManyToManyField(Image, blank=True, null=True)
     main_attribute = models.ManyToManyField(MainAttribute, blank=True, null=True)
     attributes = models.ManyToManyField(Attribute, blank=True, null=True)

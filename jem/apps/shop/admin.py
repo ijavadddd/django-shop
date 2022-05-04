@@ -6,7 +6,7 @@ from . import models
 ##Register Image model to admin panel
 @admin.register(models.Image)
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ('url',)
+    list_display = ('image',)
 
 
 ##Register Attribute model to admin panel
